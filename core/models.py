@@ -33,7 +33,7 @@ class Header:
 
 @dataclass
 class Body:
-    content: str
+    content: str | bytes
 
 
 @dataclass

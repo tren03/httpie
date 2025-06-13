@@ -49,11 +49,13 @@ def build_request(raw_request: str) -> HTTPRequest:
     return HTTPRequest(request_line=request_line, headers=headers, body=body)
 
 
-def build_response(response: HTTPResponse) -> str:
+def build_response(response: HTTPResponse) -> bytes:
     status_line = response.status_line.get_status_line()
     headers = "\r\n".join(
         f"{header.field_name}: {header.value}" for header in response.headers
-    )
+    ).encode()
     body = response.body.content if response.body else ""
+    if isinstance(body, str):  # for text responses
+        body = body.encode()
 
-    return f"{status_line}\r\n{headers}\r\n\r\n{body}"
+    return status_line.encode() + b"\r\n" + headers + b"\r\n\r\n" + body
