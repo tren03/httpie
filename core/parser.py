@@ -1,4 +1,4 @@
-from models.models import (
+from core.models import (
     Body,
     Header,
     HTTPRequest,

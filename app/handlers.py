@@ -1,6 +1,4 @@
-from typing import Callable, Dict, Tuple
-
-from models.models import (
+from core.models import (
     Body,
     Header,
     HTTPRequest,
@@ -20,6 +18,7 @@ def hello_world(request: HTTPRequest) -> HTTPResponse:
     headers = [
         Header(field_name="Content-Type", value="text/plain"),
         Header(field_name="Content-Length", value=str(len("Hello, world!"))),
+        Header(field_name="Connection", value="close"),
     ]
     body = Body(content="Hello, world!")
     return HTTPResponse(status_line=status_line, headers=headers, body=body)
@@ -35,11 +34,7 @@ def not_found() -> HTTPResponse:
     headers = [
         Header(field_name="Content-Type", value="text/plain"),
         Header(field_name="Content-Length", value=str(len(body_content))),
+        Header(field_name="Connection", value="close"),
     ]
     body = Body(content=body_content)
     return HTTPResponse(status_line=status_line, headers=headers, body=body)
-
-
-routes: Dict[Tuple[str, str], Callable[[HTTPRequest], HTTPResponse]] = {
-    ("GET", "/test"): hello_world
-}

@@ -1,7 +1,7 @@
 from typing import Callable, Protocol
 
-from models.models import Header, HTTPRequest, HTTPResponse
-from router import not_found
+from core.models import Header, HTTPRequest, HTTPResponse
+from framework.router import not_found
 
 
 class IHttpEngine(Protocol):
