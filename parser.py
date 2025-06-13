@@ -1,11 +1,11 @@
 from models.models import (
-    RequestLine,
-    Method,
-    HTTPVersion,
-    Header,
     Body,
+    Header,
     HTTPRequest,
     HTTPResponse,
+    HTTPVersion,
+    Method,
+    RequestLine,
 )
 
 

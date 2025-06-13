@@ -1,12 +1,13 @@
 from typing import Callable, Dict, Tuple
+
 from models.models import (
+    Body,
+    Header,
     HTTPRequest,
     HTTPResponse,
-    StatusLine,
     HTTPVersion,
     StatusCode,
-    Header,
-    Body,
+    StatusLine,
 )
 
 

@@ -1,9 +1,9 @@
 import socket
+from parser import build_request, build_response
 
 from http_engine import HttpEngine, IHttpEngine
 from models.models import HTTPRequest, HTTPResponse
 from router import routes
-from parser import build_request, build_response
 
 HOST = "127.0.0.1"
 PORT = 8888
